@@ -9,9 +9,9 @@ Well, I had a hard time finding a unique name, honestly. "Hayat" is a Turkish wo
 
 😍 😍 😍
 
-![image](https://github.com/DenizParlak/hayat/blob/master/hayat1.jpg)
+<img src="https://github.com/DenizParlak/hayat/blob/master/hayat1.jpg" width="248">
 
-
+----------------------------------------------------------------------------------------------------------------------------
 
 Hayat is a auditing & hardening script for Google Cloud Platform services such as:
 
@@ -21,6 +21,8 @@ Hayat is a auditing & hardening script for Google Cloud Platform services such a
 - Storage
 - Cloud SQL Instances
 - Kubernetes Clusters
+
+for now.
 
 ## Identity & Access Management
 - Ensure that corporate login credentials are used instead of Gmail accounts.
