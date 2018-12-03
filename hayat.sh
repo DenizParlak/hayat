@@ -110,7 +110,7 @@ netw4="Ensure that RSASHA1 is not used for key-signing key in Cloud DNS DNSSEC."
 netw5="Ensure that RSASHA1 is not used for zone-signing key in Cloud DNS DNSSEC."
 netw6="Ensure that SSH access is restricted from the Internet."
 netw7="Ensure that SSH access is restricted from the Internet."
-netw8="Ensure Private Google Access is enabled for all subnetwork in VPC Network."
+netw8="Ensure Private Google Access is enabled for all in VPC Network."
 netw9="Ensure VPC Flow logs is enabled for every subnet in VPC Network."
 
 vm1="Ensure that instances are not configured to use the default service account with full access to all Cloud API."
@@ -421,7 +421,7 @@ echo -en '\n'
 dash
 echo -en '\n'
 
-priv_goac(){
+:'priv_goac(){
 
 
 check_goac=$(gcloud compute networks subnets describe default --region us-central1 | grep privateIp | awk '{print $2}')
@@ -438,7 +438,7 @@ check; show netw8
 result; priv_goac
 echo -en '\n'
 dash
-echo -en '\n'
+echo -en '\n''
 
 vflow(){
 
