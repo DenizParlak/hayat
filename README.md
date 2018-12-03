@@ -75,7 +75,7 @@ Hayat has been written in bash script using gcloud and it's compatible with Linu
 
 git clone https://github.com/DenizParlak/Hayat.git && cd Hayat && chmod +x hayat.sh && ./hayat.sh
 
-You can usage with exact functions, e.g if you want to scan just Kubernetes Cluster:
+You can use with specific functions, e.g if you want to scan just Kubernetes Cluster:
 
 ./hayat.sh --only-kubernetes
 
