@@ -37,7 +37,7 @@ for now.
 - Ensure that RSASHA1 is not used for key-signing key in Cloud DNS DNSSEC.
 - Ensure that RSASHA1 is not used for zone-signing key in Cloud DNS DNSSEC.
 - Ensure that RDP access is restricted from the Internet.
-- Ensure Private Google Access is enabled for all subnetwork in VPC Network.
+- ~~Ensure Private Google Access is enabled for all subnetwork in VPC Network.~~
 - Ensure VPC Flow logs is enabled for every subnet in VPC Network.
 
 ## Virtual Machines
