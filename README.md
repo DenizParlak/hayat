@@ -2,6 +2,17 @@
 
 Google Cloud Platform Auditing &amp; Hardening Script ~
 
+
+# What does that mean "Hayat"?
+
+Well, I had a hard time finding a unique name, honestly. "Hayat" is a Turkish word which means "Life" in English and my niece's name. Are you ready to meet her?
+
+😍 😍 😍
+
+![image](https://github.com/DenizParlak/hayat/blob/master/hayat1.jpg)
+
+
+
 Hayat is a auditing & hardening script for Google Cloud Platform services such as:
 
 - Identity & Access Management
