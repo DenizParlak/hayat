@@ -69,7 +69,7 @@ for now.
 
 # Requirements
 
-Hayat has been written in bash script using gcloud and it works in Linux and OSX.
+Hayat has been written in bash script using gcloud and it's compatible with Linux and OSX.
 
 # Usage
 
