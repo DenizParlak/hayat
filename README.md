@@ -66,6 +66,5 @@ git clone https://github.com/DenizParlak/Hayat.git && cd Hayat && chmod +x hayat
 
 ![image](https://github.com/DenizParlak/hayat/blob/master/h1.jpg)
 
-![ScreenShot](https://github.com/DenizParlak/hayat/blob/master/h1.jpg)
+![image](https://github.com/DenizParlak/hayat/blob/master/h2.jpg)
 
-![ScreenShot](https://i.hizliresim.com/4jDGRL.jpg)
