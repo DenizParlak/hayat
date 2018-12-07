@@ -16,6 +16,7 @@ Well, I had a hard time finding a unique name, honestly. "Hayat" is a Turkish wo
 Hayat is a auditing & hardening script for Google Cloud Platform services such as:
 
 - Identity & Access Management
+- Logging and monitoring
 - Networking
 - Virtual Machines
 - Storage
