@@ -37,7 +37,7 @@ for now.
 - Ensure that RSASHA1 is not used for key-signing key in Cloud DNS DNSSEC.
 - Ensure that RSASHA1 is not used for zone-signing key in Cloud DNS DNSSEC.
 - Ensure that RDP access is restricted from the Internet.
-- ~~Ensure Private Google Access is enabled for all subnetwork in VPC Network.~~
+- Ensure Private Google Access is enabled for all subnetwork in VPC Network.
 - Ensure VPC Flow logs is enabled for every subnet in VPC Network.
 
 ## Virtual Machines
@@ -66,6 +66,8 @@ for now.
 - Ensure Kubernetes web UI / Dashboard is disabled.
 - Ensure `Automatic node repair` is enabled for Kubernetes Clusters.
 - Ensure Automatic node upgrades is enabled on Kubernetes Engine Clusters nodes.
+- Ensure Container-Optimized OS (cos) is used for Kubernetes Engine Clusters Node image.
+- Ensure Basic Authentication is disabled on Kubernetes Engine Clusters.
 
 # Requirements
 
