@@ -30,6 +30,9 @@ for now.
 - Ensure that ServiceAccount has no Admin privileges.
 - Ensure that IAM users are not assigned Service Account User role at project level.
 
+## Logging and Monitoring
+- Ensure that sinks are configured for all Log entries.
+
 ## Networking
 - Ensure the default network does not exist in a project.
 - Ensure legacy networks does not exists for a project.
