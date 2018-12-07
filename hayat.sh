@@ -138,7 +138,7 @@ k8s6="Ensure Kubernetes web UI / Dashboard is disabled."
 k8s7="Ensure Automatic node repair is enabled for Kubernetes Clusters."
 k8s8="Ensure Automatic node upgrades is enabled on Kubernetes Engine Clusters nodes."
 k8s9="Ensure Container-Optimized OS (cos) is used for Kubernetes Engine Clusters Node image."
-
+k8s10="Ensure Basic Authentication is disabled on Kubernetes Engine Clusters."
 
 
 echo -en  "  ██░ ██  ▄▄▄     ▓██   ██▓ ▄▄▄     ▄▄▄█████▓  '\n'"
@@ -921,6 +921,32 @@ fi
 
 check; show k8s9
 result; k8s_cos
+echo -en '\n'
+dash
+echo -en '\n'
+
+k8s_b_auth(){
+
+read -p 'Cluster name: ' c_name
+echo -en '\n'
+read -p 'Zone name: ' z_name
+echo -en '\n'
+
+
+check_bauth=$(gcloud container clusters describe $c_name --zone $z_name --format json | grep -B3 masterAuthorizedNetworksConfig | grep password | awk '{print $2}' | sed 's/\"//g')
+
+if [[ $check_bauth == *""* ]]
+then
+echo -en "Basic Authentication is enabled on Kubernetes Engine Clusters." "${re}         [ Warning ]${xx}"
+else
+echo -en "Basic Authentication is disabled on Kubernetes Engine Clusters."  "${gr}                     [ OK ]${xx}"
+fi
+
+}
+
+
+check; show k8s10
+result; k8s_b_auth
 echo -en '\n'
 dash
 echo -en '\n'
