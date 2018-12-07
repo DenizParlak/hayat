@@ -5,7 +5,7 @@ Google Cloud Platform Auditing &amp; Hardening Script ~
 
 # What does that mean "Hayat"?
 
-Well, I had a hard time finding a unique name, honestly. "Hayat" is a Turkish word which means "Life" in English and my niece's name. Are you ready to meet her?
+Well, I had a hard time finding a unique name, honestly. "Hayat" is a Turkish word which means "Life" in English and also my niece's name. Are you ready to meet her?
 
 <img src="https://github.com/DenizParlak/hayat/blob/master/hayat1.jpg" width="248">
 
