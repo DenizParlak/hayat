@@ -137,7 +137,7 @@ k8s5="Ensure Kubernetes Clusters are configured with Labels."
 k8s6="Ensure Kubernetes web UI / Dashboard is disabled."
 k8s7="Ensure Automatic node repair is enabled for Kubernetes Clusters."
 k8s8="Ensure Automatic node upgrades is enabled on Kubernetes Engine Clusters nodes."
-
+k8s9="Ensure Container-Optimized OS (cos) is used for Kubernetes Engine Clusters Node image."
 
 
 
@@ -900,7 +900,30 @@ echo -en '\n'
 dash
 echo -en '\n'
 
+k8s_cos(){
 
+read -p 'Pool name: ' p_name
+read -p 'Zone name: ' z_name
+echo -en '\n'
+read -p 'Cluster name: ' cl_name
+echo -en '\n'
+
+get_cos=$(gcloud container node-pools describe $p_name --zone $z_name --cluster $cl_name --format json | grep imageType | awk '{print $2}' | sed 's/\"//g' | cut -c1-3)
+
+if [[ $get_cos == "COS" ]]
+then
+echo -en "Container-Optimized OS is used for Kubernetes Engine." "${gr}                     [ OK ]${xx}"
+else
+echo -en "Container-Optimized OS is not used for Kubernetes Engine."  "${re}         [ Warning ]${xx}"
+fi
+
+}
+
+check; show k8s9
+result; k8s_cos
+echo -en '\n'
+dash
+echo -en '\n'
 
 }
 
