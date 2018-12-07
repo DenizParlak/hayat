@@ -103,6 +103,8 @@ iam4="Ensure that ServiceAccount has no Admin privileges."
 iam5="Ensure that IAM users are not assigned Service Account User role at project level."
 
 
+log2="Ensure that sinks are configured for all Log entries."
+
 netw1="Ensure the default network does not exist in a project."
 netw2="Ensure legacy networks does not exists for a project."
 netw3="Ensure that DNSSEC is enabled for Cloud DNS."
@@ -266,6 +268,32 @@ exit 1
 elif [[ $1 == "iam" ]]
 exit 1
 fi '
+
+log_clus(){
+
+log_sink(){
+
+check_sink=$(gcloud logging sinks list 2>&1)
+
+
+echo $check_sink
+
+if [[ $check_sink == *"0 items"* ]]
+then
+echo -en "    No any sinks are configured for Log entries." "${re}                       [ Warning ]${xx}"
+else
+echo -en "    Sink is configured for Log entries." "${gr}   Ok${xx}"
+fi
+
+}
+
+check; show log2
+result; log_sink
+echo -en '\n'
+dash
+echo -en '\n'
+
+}
 
 
 net_clus(){
@@ -957,6 +985,10 @@ echo -en '\n'
 if [[ $1 == "--only-iam" ]]
 then
 iam_clus
+exit 1
+elif [[ $1 == "--only-log" ]]
+then
+net_clus
 exit 1
 elif [[ $1 == "--only-network" ]]
 then
