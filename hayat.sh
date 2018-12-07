@@ -421,7 +421,7 @@ echo -en '\n'
 dash
 echo -en '\n'
 
-:'priv_goac(){
+'priv_goac(){
 
 
 check_goac=$(gcloud compute networks subnets describe default --region us-central1 | grep privateIp | awk '{print $2}')
@@ -438,7 +438,7 @@ check; show netw8
 result; priv_goac
 echo -en '\n'
 dash
-echo -en '\n''
+echo -en '\n'
 
 vflow(){
 
