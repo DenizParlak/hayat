@@ -42,6 +42,15 @@ echo -en '\n'
 echo -en '\n'
 }
 
+log_scr(){
+
+echo -en "${bl}  # Logging and Monitoring${xx}"
+echo -en '\n'
+echo -en "--------------------------------"
+echo -en '\n'
+echo -en '\n'
+
+}
 
 net_scr(){
 
@@ -287,6 +296,7 @@ fi
 
 }
 
+log_scr
 check; show log2
 result; log_sink
 echo -en '\n'
@@ -1013,6 +1023,7 @@ exit 1
 elif [ "$#" -eq "0" ]
 then
 iam_clus
+log_clus
 net_clus
 vm_clus
 stor_clus
