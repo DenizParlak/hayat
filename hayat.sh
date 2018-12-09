@@ -449,7 +449,7 @@ echo -en '\n'
 dash
 echo -en '\n'
 
-'priv_goac(){
+priv_goac(){
 
 
 check_goac=$(gcloud compute networks subnets describe default --region us-central1 | grep privateIp | awk '{print $2}')
