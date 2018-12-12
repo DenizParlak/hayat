@@ -83,7 +83,7 @@ git clone https://github.com/DenizParlak/Hayat.git && cd Hayat && chmod +x hayat
 
 You can use with specific functions, e.g if you want to scan just Kubernetes Cluster:
 
-./hayat.sh --only-kubernetes
+./hayat.sh --only-k8s
 
 # Screenshots
 
