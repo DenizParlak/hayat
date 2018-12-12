@@ -152,7 +152,7 @@ k8s9="Ensure Container-Optimized OS (cos) is used for Kubernetes Engine Clusters
 k8s10="Ensure Basic Authentication is disabled on Kubernetes Engine Clusters."
 
 
-echo -en  "  ██░ ██  ▄▄▄     ▓██   ██▓ ▄▄▄     ▄▄▄█████▓  '\n'"
+echo -en " ██░ ██  ▄▄▄     ▓██   ██▓ ▄▄▄     ▄▄▄█████▓  '\n'"
 echo -en "▓██░ ██▒▒████▄    ▒██  ██▒▒████▄   ▓  ██▒ ▓▒  '\n'"
 echo -en "▒██▀▀██░▒██  ▀█▄   ▒██ ██░▒██  ▀█▄ ▒ ▓██░ ▒░  '\n'"
 echo -en "░▓█ ░██ ░██▄▄▄▄██  ░ ▐██▓░░██▄▄▄▄██░ ▓██▓ ░   '\n'"
@@ -176,6 +176,7 @@ echo -e "____________________________________________"
 echo -en '\n'
 
 
+cp report_template.html res.html
 
 iam_clus(){
 
@@ -185,17 +186,20 @@ echo -en '\n'
 iam_check_gmail(){
 
 
-check_mail=$(gcloud projects get-iam-policy $project | grep gmail)
+check_mail=$(gcloud projects get-iam-policy tt11-224012 | grep gmail)
 
-mailb=$(gcloud projects get-iam-policy $project | grep gmail | awk -F ":" '{print $2}' | uniq)
+mailb=$(gcloud projects get-iam-policy tt11-224012 | grep gmail | awk -F ":" '{print $2}' | uniq)
 
 if [[ $check_mail == *"gmail"* ]]
 then
+read ech1 < <(echo -en "Current mail: $mailb" "${re}                         [ Warning ]${xx}")
 echo -en "Current mail: $mailb" "${re}                         [ Warning ]${xx}"
 else
 echo -en "Current mail policy is fine." "${gr}                               [ OK ]${xx}"
 fi
 }
+
+t1=$(echo $iam1)
 
 iam_scr
 check; show iam1
@@ -203,6 +207,25 @@ result; iam_check_gmail
 echo -en '\n'
 dash
 echo -en '\n'
+
+gsed -i "s/a1/$t1/g" res.html
+
+t2=$(echo $iam_check_gmail | awk -F "om" {'print $1'})
+
+a2=$(echo $ech1 | tr -s ' ' | cut -d ' ' -f1,2,3)
+
+gsed -i "s/a2/$a2/g" res.html
+
+#echo $iam_check_gmail
+
+if [[ $iam_check_mail == *"OK"* ]]
+then
+gsed -i "s/a3/OK/g" res.html
+#gsed -i "s/$t2//g" res.html | grep -A5 $t2
+else
+gsed -i "s/a3/WARNING/g" res.html
+gsed -i "91s/ok/failure/g" res.html
+fi
 
 
 serv_acc_key(){
@@ -212,6 +235,7 @@ check_iam_acc=$(gcloud iam service-accounts keys list --iam-account=$get_iam_acc
 
 if [[ $check_iam_acc == *"items"* ]]
 then
+read ech2 < <(echo -en "Service Account has no any key." "${gr}                               [ OK ]${xx}")
 echo -en "Service Account has no any key." "${gr}                               [ OK ]${xx}"
 else
 echo -en "Service Account has a key." "${re}                         [ Warning ]${xx}"
@@ -219,13 +243,29 @@ fi
 
 }
 
+te2=$(echo $iam3)
+t2=$(echo $ech2)
+
 check; show iam3
 result; serv_acc_key
 echo -en '\n'
 dash
 echo -en '\n'
 
+gsed -i "s/c1/$te2/g" res.html
 
+c2=$(echo $ech2 | tr -s ' ' | cut -d ' ' -f1,2,3,4,5,6)
+
+gsed -i "s/c2/$c2/g" res.html
+
+if [[ $ech2 == *"OK"* ]]
+then
+gsed -i "s/c3/OK/g" res.html
+gsed -i "103s/failure/ok/" res.html
+else
+gsed -i "s/c3/WARNING/g" res.html
+gsed -i "103s/ok/failure/g" res.html
+fi
 
 iam_service_acc(){
 
@@ -235,18 +275,36 @@ echo $editor_serv_accs > ed.txt
 
 if [ -s ed.txt  ]
 then
-echo -en "These Service Accounts has Editor role." "${re}                       [ Warning ]${xx}"
+echo -en "These Service Accounts has Editor role.""${re}                        [ Warning ]${xx}"
+read ech3 < <(echo -en "These Service Accounts has Editor role." "${re}                       [ Warning ]${xx}")
 else
 echo -en "There is no any Service Accounts with Editor role." "${gr}   Ok${xx}"
 rm -f ed.txt
 fi
 }
 
+t3=$(echo $iam4)
+
 check; show iam4
 result; iam_service_acc
 echo -en '\n'
 dash
 echo -en '\n'
+
+gsed -i "s/d1/$t3/g" res.html
+
+d2=$(echo $ech3 | tr -s ' ' | cut -d ' ' -f1,2,3,4,5,6)
+
+gsed -i "s/d2/$d2/g" res.html
+
+if [[ $ech3 == *"OK"* ]]
+then
+gsed -i "s/d3/OK/g" res.html
+gsed -i "114/failure/ok/" res.html
+else
+gsed -i "s/d3/WARNING/g" res.html
+gsed -i "114s/ok/failure/g" res.html
+fi
 
 
 iam_serv(){
@@ -257,16 +315,34 @@ if [[ $get_iam_serv == " " ]]
 then
 echo -en "IAM users are not assigned Service Account User."
 else
-echo -en "IAM users are assigned Service Account User."
+echo -en "IAM users are assigned Service Account User." "${re}                  [ Warning ]${xx}"
+read ech4 < <(echo -en "IAM users are assigned Service Account User.")
 fi
 
 }
+t4=$(echo $iam5)
+e2=$(echo $ech4)
 
 check; show iam5
 result; iam_serv
 echo -en '\n'
 dash
 echo -en '\n'
+
+gsed -i "s/e1/$t4/g" res.html
+
+m2=$(echo $ech4 | tr -s ' ' | cut -d ' ' -f1,2,3,4,5,6,7)
+
+gsed -i "s/e2/$m2/g" res.html
+
+if [[ $ech4 == *"OK"* ]]
+then
+gsed -i "s/e3/OK/g" res.html
+gsed -i "125s/failure/ok/" res.html
+else
+gsed -i "s/e3/WARNING/g" res.html
+gsed -i "125s/ok/failure/" res.html
+fi
 
 }
 
