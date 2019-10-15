@@ -30,6 +30,8 @@ for now.
 - Ensure that there are only GCP-managed service account keys for each service account.
 - Ensure that ServiceAccount has no Admin privileges.
 - Ensure that IAM users are not assigned Service Account User role at project level.
+- Ensure user-managed/external keys for service accounts are rotated every 90 days or less.
+- Ensure that Separation of duties is enforced while assigning service account related roles to users.
 
 ## Logging and Monitoring
 - Ensure that sinks are configured for all Log entries.
@@ -41,6 +43,7 @@ for now.
 - Ensure that RSASHA1 is not used for key-signing key in Cloud DNS DNSSEC.
 - Ensure that RSASHA1 is not used for zone-signing key in Cloud DNS DNSSEC.
 - Ensure that RDP access is restricted from the Internet.
+- Ensure that SSH access is restricted from the Internet.
 - Ensure Private Google Access is enabled for all subnetwork in VPC Network.
 - Ensure VPC Flow logs is enabled for every subnet in VPC Network.
 
@@ -50,6 +53,7 @@ for now.
 - Ensure oslogin is enabled for a Project.
 - Ensure 'Enable connecting to serial ports' is not enabled for VM Instance.
 - Ensure that IP forwarding is not enabled on Instances.
+- Ensure VM disks for critical VMs are encrypted with CustomerSupplied Encryption Keys (CSEK)
 
 ## Storage
 - Ensure that Cloud Storage bucket is not anonymously or publicly accessible.
@@ -72,6 +76,14 @@ for now.
 - Ensure Automatic node upgrades is enabled on Kubernetes Engine Clusters nodes.
 - Ensure Container-Optimized OS (cos) is used for Kubernetes Engine Clusters Node image.
 - Ensure Basic Authentication is disabled on Kubernetes Engine Clusters.
+- Ensure Network policy is enabled on Kubernetes Engine Clusters.
+- Ensure Kubernetes Cluster is created with Client Certificate enabled.
+- Ensure Kubernetes Cluster is created with Alias IP ranges enabled.
+- Ensure PodSecurityPolicy controller is enabled on the Kubernetes Engine Clusters.
+- Ensure Kubernetes Cluster is created with Private cluster enabled.
+- Ensure Private Google Access is set on Kubernetes Engine Cluster Subnets.
+- Ensure default Service account is not used for Project access in Kubernetes Clusters
+- Ensure Kubernetes Clusters created with limited service account Access scopes for Project access.
 
 # Requirements
 
