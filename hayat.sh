@@ -526,6 +526,27 @@ echo -en '\n'
 dash
 echo -en '\n'
 
+sink_vers(){
+
+get_sink=$(gcloud logging sinks list | grep -v DES | head -n 1 | sed 's/^.*\///' | awk '{print $1}')
+
+check_vers=$(gsutil versioning get gs://$get_sink | awk '{print $2}')
+
+if [[ $check_vers = "Suspended" ]]
+then
+echo "Object versioning is disabled." "${re}  Warning${xx}"
+else
+echo "Object versioning is enabled." "${gr}   Ok${xx}"
+fi
+
+
+}
+check; show log3
+result; sink_vers
+echo -en '\n'
+dash
+echo -en '\n'
+
 }
 
 
