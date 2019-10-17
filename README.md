@@ -35,6 +35,7 @@ for now.
 
 ## Logging and Monitoring
 - Ensure that sinks are configured for all Log entries.
+- Ensure that object versioning is enabled on log-buckets.
 
 ## Networking
 - Ensure the default network does not exist in a project.
