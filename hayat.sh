@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -euo pipefail
 
 gr='\033[1;32m'
 re='\033[1;31m'
