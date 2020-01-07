@@ -119,6 +119,7 @@ iam6="Ensure user-managed/external keys for service accounts are rotated every 9
 iam7="Ensure that Separation of duties is enforced while assigning service account related roles to users."
 
 log2="Ensure that sinks are configured for all Log entries."
+log3="Ensure that object versioning is enabled on log-buckets."
 
 netw1="Ensure the default network does not exist in a project."
 netw2="Ensure legacy networks does not exists for a project."
@@ -533,9 +534,9 @@ check_vers=$(gsutil versioning get gs://$get_sink | awk '{print $2}')
 
 if [[ $check_vers = "Suspended" ]]
 then
-echo "Object versioning is disabled." "${re}  Warning${xx}"
+echo -en "Object versioning is disabled." "${re}  [ Warning ]${xx}"
 else
-echo "Object versioning is enabled." "${gr}   Ok${xx}"
+echo -en "Object versioning is enabled." "${gr}   [ OK ]${xx}"
 fi
 
 
